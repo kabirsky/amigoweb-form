@@ -122,7 +122,7 @@ function App() {
     setErrorFormState(newErrorFormState);
 
     if (!isError) {
-      setTimeout(() => alert("Успех"), 0); //Чтобы интерфейс успел обновиться
+      setTimeout(() => alert("Успех"), 100); //Чтобы интерфейс успел обновиться
     }
   };
 
