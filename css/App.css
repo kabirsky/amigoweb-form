@@ -20,6 +20,18 @@ body {
   padding: 40px;
   background-color: #e5e5e5;
 }
+body #root,
+body .App {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
 body .link {
   text-decoration: none;
   color: #0880ae;
@@ -30,7 +42,9 @@ body .link:focus {
 }
 
 .form-wrapper {
-  width: 460px;
+  width: 100%;
+  min-width: 320px;
+  max-width: 460px;
   background: #ffffff;
   border-radius: 24px;
   padding: 40px 30px;
@@ -57,8 +71,17 @@ body .link:focus {
   margin: 0 0 58px 0;
 }
 .form-wrapper .form .label {
-  font-weight: 400;
+  position: relative;
+  font-weight: 500;
   color: #756f86;
+}
+.form-wrapper .form .label .error-msg {
+  position: absolute;
+  bottom: 10px;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+  color: #ff7171;
 }
 .form-wrapper .form .input {
   font-size: 16px;
@@ -156,7 +179,7 @@ body .link:focus {
   z-index: -1;
   opacity: 0;
 }
-.form-wrapper .form .checkbox-wrapper .checkbox:focus + .agreement-label:before {
+.form-wrapper .form .checkbox-wrapper .checkbox:focus + .agreement-label:before, .form-wrapper .form .checkbox-wrapper .checkbox:active + .agreement-label:before {
   border: 2px solid #0880ae;
   margin: -1px 7px -1px -1px;
 }
@@ -172,6 +195,8 @@ body .link:focus {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -179,6 +204,7 @@ body .link:focus {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  white-space: break-spaces;
 }
 .form-wrapper .form .checkbox-wrapper .agreement-label:before {
   content: "";
@@ -214,4 +240,14 @@ body .link:focus {
 }
 .form-wrapper .form .register-btn:focus {
   border: 2px solid rgba(44, 39, 56, 0.86);
+}
+.form-wrapper .form .register-btn--disabled {
+  border: 2px solid #dbe2ea;
+  background: #dbe2ea;
+  color: #2c2738;
+  mix-blend-mode: normal;
+  opacity: 0.24;
+}
+.form-wrapper .form .register-btn--disabled:hover {
+  cursor: initial;
 }

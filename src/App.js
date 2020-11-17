@@ -54,6 +54,10 @@ function App() {
     { value: "spanish", label: "Испанский" },
   ];
 
+  const getErrorMsg = (text) => {
+    return <div className="error-msg">{text}</div>;
+  };
+
   const handleChangeName = (event) => {
     setFormState({ ...formState, name: event.target.value });
   };
@@ -71,7 +75,7 @@ function App() {
     });
   };
   const handleChangeAgreement = (event) => {
-    setFormState({ ...formState, agreement: event.target.value });
+    setFormState({ ...formState, agreement: !agreement });
   };
 
   const handleKeyPress = (event) => {
@@ -79,30 +83,46 @@ function App() {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
+    let newErrorFormState = { ...errorFormState };
     isError = false;
+
     //Проверка ФИО
-    if (name === "" || name.match(/^[a-z а-яё ,.'-]+$/i) === null) {
+    if (name === "" || name.match(/^[a-z а-яё -]+$/i) === null) {
       isError = true;
-      alert(123);
-      //setErrorName("form-element form-name form-element__error");
+      newErrorFormState.isNameError = true;
     } else {
-      //setErrorName("form-element form-name");
+      if (isNameError) newErrorFormState.isNameError = false;
     }
 
     //Проверка емейла
-    if (email === "" || email.match(/[^@]+@[^.]+\..+/i) === null) {
+    //В случае с проверкой емейла - проще всего проверять на наличие @ и всё
+    if (email === "" || email.match(/[^@]+@[^@]+/i) === null) {
       isError = true;
-      //setErrorEmail("form-element form-email form-element__error");
+      newErrorFormState.isEmailError = true;
     } else {
-      //setErrorEmail("form-element form-email");
+      if (isEmailError) newErrorFormState.isEmailError = false;
     }
 
     //Проверка телефона
     if (phone === "" || phone.includes("_")) {
       isError = true;
-      //setErrorPhone("form-element form-phone form-element__error");
+      newErrorFormState.isPhoneError = true;
     } else {
-      //setErrorPhone("form-element form-phone");
+      if (isPhoneError) newErrorFormState.isPhoneError = false;
+    }
+
+    //Проверка языка
+    if (language.value === "" || language === "") {
+      isError = true;
+      newErrorFormState.isLanguageError = true;
+    } else {
+      if (isLanguageError) newErrorFormState.isLanguageError = false;
+    }
+
+    setErrorFormState(newErrorFormState);
+
+    if (!isError) {
+      setTimeout(() => alert("Успех"), 0); //Чтобы интерфейс успел обновиться
     }
   };
 
@@ -127,6 +147,7 @@ function App() {
               value={name}
               onChange={handleChangeName}
             />
+            {isNameError ? getErrorMsg("Введено не корректное значение") : ""}
           </label>
 
           <label className="email-label label" name="email">
@@ -139,6 +160,7 @@ function App() {
               value={email}
               onChange={handleChangeEmail}
             />
+            {isEmailError ? getErrorMsg("Введено не корректное значение") : ""}
           </label>
 
           <label className="phone-label label" name="phone">
@@ -153,6 +175,7 @@ function App() {
               value={phone}
               onChange={handleChangePhone}
             />
+            {isPhoneError ? getErrorMsg("Введено не корректное значение") : ""}
           </label>
 
           <label className="language-label label" name="language">
@@ -163,9 +186,10 @@ function App() {
               options={selectOptions}
               placeholder={"Язык"}
               onKeyPress={handleKeyPress}
-              value={selectOptions.find((item) => item.value === language)}
+              value={language}
               onChange={handleChangeLanguage}
             />
+            {isLanguageError ? getErrorMsg("Выберите язык") : ""}
           </label>
 
           <div className="checkbox-wrapper">
@@ -175,19 +199,30 @@ function App() {
               name="agreement"
               id="agreement-checkbox"
               onKeyPress={handleKeyPress}
-              value={agreement}
+              checked={agreement}
               onChange={handleChangeAgreement}
             />
-            <label for="agreement-checkbox" className="agreement-label label">
-              Принимаю&nbsp;
+            <label
+              htmlFor="agreement-checkbox"
+              className="agreement-label label"
+            >
+              {"Принимаю "}
               <a href="#" className="agreement-link link">
                 условия
               </a>
-              &nbsp;использования
+              {" использования"}
             </label>
           </div>
 
-          <button className="register-btn btn" onKeyPress={handleKeyPress}>
+          <button
+            className={
+              agreement
+                ? "register-btn btn"
+                : "register-btn register-btn--disabled btn"
+            }
+            onKeyPress={handleKeyPress}
+            disabled={!agreement}
+          >
             Зарегистрироваться
           </button>
         </form>
