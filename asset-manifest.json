@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.6d68bdeb.chunk.css",
-    "main.js": "/static/js/main.1ad0cc56.chunk.js",
-    "main.js.map": "/static/js/main.1ad0cc56.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.7fffd4c8.js",
-    "runtime-main.js.map": "/static/js/runtime-main.7fffd4c8.js.map",
-    "static/js/2.16461022.chunk.js": "/static/js/2.16461022.chunk.js",
-    "static/js/2.16461022.chunk.js.map": "/static/js/2.16461022.chunk.js.map",
-    "static/js/3.b04d7164.chunk.js": "/static/js/3.b04d7164.chunk.js",
-    "static/js/3.b04d7164.chunk.js.map": "/static/js/3.b04d7164.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/main.6d68bdeb.chunk.css.map": "/static/css/main.6d68bdeb.chunk.css.map",
-    "static/js/2.16461022.chunk.js.LICENSE.txt": "/static/js/2.16461022.chunk.js.LICENSE.txt",
-    "static/media/App.scss": "/static/media/check.83adcf99.svg"
+    "main.css": "/amigoweb-form/static/css/main.505ff41c.chunk.css",
+    "main.js": "/amigoweb-form/static/js/main.1ad0cc56.chunk.js",
+    "main.js.map": "/amigoweb-form/static/js/main.1ad0cc56.chunk.js.map",
+    "runtime-main.js": "/amigoweb-form/static/js/runtime-main.cf8dc11a.js",
+    "runtime-main.js.map": "/amigoweb-form/static/js/runtime-main.cf8dc11a.js.map",
+    "static/js/2.16461022.chunk.js": "/amigoweb-form/static/js/2.16461022.chunk.js",
+    "static/js/2.16461022.chunk.js.map": "/amigoweb-form/static/js/2.16461022.chunk.js.map",
+    "static/js/3.b04d7164.chunk.js": "/amigoweb-form/static/js/3.b04d7164.chunk.js",
+    "static/js/3.b04d7164.chunk.js.map": "/amigoweb-form/static/js/3.b04d7164.chunk.js.map",
+    "index.html": "/amigoweb-form/index.html",
+    "static/css/main.505ff41c.chunk.css.map": "/amigoweb-form/static/css/main.505ff41c.chunk.css.map",
+    "static/js/2.16461022.chunk.js.LICENSE.txt": "/amigoweb-form/static/js/2.16461022.chunk.js.LICENSE.txt",
+    "static/media/App.scss": "/amigoweb-form/static/media/check.83adcf99.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.7fffd4c8.js",
+    "static/js/runtime-main.cf8dc11a.js",
     "static/js/2.16461022.chunk.js",
-    "static/css/main.6d68bdeb.chunk.css",
+    "static/css/main.505ff41c.chunk.css",
     "static/js/main.1ad0cc56.chunk.js"
   ]
 }
