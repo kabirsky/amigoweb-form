@@ -127,7 +127,7 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="app">
       <div className="form-wrapper">
         <form className="form" onSubmit={handleSubmit}>
           <h2 className="registration-title">Регистрация</h2>

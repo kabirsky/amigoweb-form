@@ -21,7 +21,7 @@ body {
   background-color: #e5e5e5;
 }
 body #root,
-body .App {
+body .app {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
